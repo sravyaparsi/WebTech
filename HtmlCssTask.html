@@ -3,64 +3,103 @@
 <head>
     <link rel="stylesheet" href="style.css"> 
 </head>
-<body>
-        <div class="page">
-        <div id="title" class="title">
-                <h2 style="float:left;">NEWSFEED  </h2>   <h5 style="float:left;margin-left: 15px;">Yet another newsfeed</h5>
-        </div> 
-        <div class="newsfeed">
-            <div class="picture"></div>
-            <div class="news">
-                    <div class="date">
-                    <b>TITLE ONE </b> 
-                    </br> 
-                    Posted on: 26/06/19 // category: category one</div>
-                    <p> News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed,
-                    </p>
-                    <button class="button2">continue reading</button>
-            </div>
-         </div>
-          <div>
-                SELECT CATEGORY
-                <div >
-                <select class="dropdown">
-                    <option value="All">ALL</option>
-                </select>
-                </div>
-                </br>
-                <input type="text" name="fname" class="input">
-                <button class="button">Subscribe</button>
-          </div>
-         <div class="newsfeed">
-                <div class="picture"></div>
-                <div class="news">
-                    <div class="date">
-                      <b>TITLE TWO </b> 
-                      </br> 
-                       Posted on: 26/06/19 // category: category two
-                    </div>
-                    <p> News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed,
-                    </p>
-                    <button class="button2">continue reading</button>
-                </div>
-         </div> 
-         <div class="newsfeed">
-                <div class="picture"></div>
-                <div class="news">
-                    <div class="date">
-                        <b>TITLE THREE </b> 
-                        </br> 
-                         Posted on: 26/06/19 // category: category three
-                        </div>
-                        <p> News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed,
-                        </p>
-                        <button class="button2">continue reading</button>
-                </div>
-    </div>
-    <div class="end">
-            @newsfeed 2019
-        </div>
-    </div>
+
+
+<body >
+        <div id="main">
+                       
+                
+                
+                <script type="text/javascript">
+                var x=createDOM();
+                function createDOM(){
+                       var userEvents=createElement("div","event","");
+                        var selectList=CreateDropDown();
+                        var text=createElement("div",null,"SELECT CATEGORY");
+                        var email=createElement("input","input","");
+                        var subscribe=createElement("button","button","Subscribe");
+                        userEvents.appendChild(text)
+                        userEvents.appendChild(selectList)
+                        userEvents.appendChild(email)
+                        userEvents.appendChild(subscribe)
+                        var element = document.getElementById("main");
+                       
+                        title=  createElement("div","title","NEWSFEED");
+                        element.appendChild(title);
+                        
+                        
+                       
+
+
+                        var titles=["Tite one","Title Two","Tilte Three","Title Four", "Title Five", "Title Six", "Title Seven", "Tilte Eight","Titlt Nine","Title Ten"];
+                        for(let i=0;i<10;i++){
+                                date=createElement("div","date",`${titles[i]}`);
+                                post=createElement("i",null, `Posted on: 26/06/19 // category: ${titles[i]}`);
+                                news= createElement("div","news","");
+                                para=createElement("p",null,"News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed");
+
+                                button=createElement("button","button2","continue Reading");
+
+                                var newsfeed=document.createElement("div");
+                                newsfeed.className="newsfeed";
+
+                                newsfeed.id=i+1;
+
+                                var picture=document.createElement("div");
+                                picture.className="picture";
+
+                                news.appendChild(date);
+                                news.appendChild(post);
+                                news.appendChild(para);
+                                news.appendChild(button);
+
+                                newsfeed.appendChild(picture);
+                                newsfeed.append(news);
+                               
+                               
+                                element.appendChild(newsfeed);
+                                if(i==0)
+                                element.appendChild(userEvents);
+                       
+                                 option = document.createElement("option");
+                               
+                                option.text = `${i+1}`;
+                                selectList.options.add(option,i+1);
+                        }
+                      
+
+
+
+
+                }
+                
+
+                function CreateDropDown(){
+                        var selectList=document.createElement("select");
+                        var option = document.createElement("option");
+                        selectList.className="dropdown";
+                        selectList.id="select1";
+                        option.text = "ALL";
+                        selectList.addEventListener('change',function(){  changee();});
+                        selectList.options.add(option,10);
+                        return selectList
+                }
+
+                function createElement(e, classname,text){
+                        var para = document.createElement(e);
+                        para.className= classname;
+                        var node = document.createTextNode(text);
+                        para.appendChild(node);
+
+                        return para;
+                }
+                function changee(){
+                        var value=document.getElementsByClassName("dropdown").value;
+                        var el = document.getElementsByClassName("newsfeed");
+                        alert(el.value);
+                        el.style.visibility="hidden"
+                }
+        </script>
     
 </body>
 </html>

@@ -7,9 +7,11 @@
 }
 .news{
     float: left;
+    
 }
 p{
-    width: 500px;
+    width: 700px;
+    clear: both;
 }  
 .title{
     background-color: darkblue;
@@ -21,18 +23,26 @@ p{
    margin-top: 20px;
 } 
 .newsfeed{
-    clear: both;
+    
+     float:left;
     border-bottom: 0.7px solid grey;
-    width: 660px;
+    /* width: 900px; */
+    
 }
 .dropdown{
-    width:210px;
+    width:220px;
     height: 30px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.event{
+    float: left;
+    right: 200px;
+    margin-top:20px;
+    width:220px;
 }
 .button{
     background-color:black;
-    width:70px;
+    width:75px;
     height: 32px;
     float: left;
     color: aliceblue
@@ -52,8 +62,4 @@ p{
 .button2{
     background-color:rgb(218, 102, 59);
     height: 35px;
-}
-.page{
-    margin-left: 200px;
-    margin-right: 300px;
 }
