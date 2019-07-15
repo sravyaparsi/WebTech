@@ -1,7 +1,7 @@
 .picture{
     width: 120px;
-    height:180px;
-    background-color:grey;
+    height:150px;
+    
     float: left;
     margin: 20px;
 }
@@ -11,11 +11,11 @@
 }
 p{
     width: 700px;
-    clear: both;
+   
 }  
 .title{
     background-color: darkblue;
-    height: 70px;
+    height: 60px;
     color:aliceblue;
 }
 
@@ -35,10 +35,12 @@ p{
     margin-bottom: 10px;
 }
 .event{
-    float: left;
+    float:right;
     right: 200px;
     margin-top:20px;
     width:220px;
+    margin-right:200px;
+   
 }
 .button{
     background-color:black;
@@ -47,19 +49,19 @@ p{
     float: left;
     color: aliceblue
 }
-.input{
+.email{
     width:140px;
     height: 27px;
     float: left;
 }
-.end{
+.footer{
     clear: both;
     background-color:darkblue;
     height: 30px;
     text-align: center;
     color: aliceblue;
 }
-.button2{
-    background-color:rgb(218, 102, 59);
+.readButton{
+    background-color:grey;
     height: 35px;
 }
