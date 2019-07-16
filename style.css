@@ -1,19 +1,21 @@
 .picture{
     width: 120px;
-    height:180px;
-    background-color:grey;
+    height:150px;
+    
     float: left;
     margin: 20px;
 }
 .news{
     float: left;
+    
 }
 p{
-    width: 500px;
+    width: 700px;
+   
 }  
 .title{
     background-color: darkblue;
-    height: 70px;
+    height: 60px;
     color:aliceblue;
 }
 
@@ -21,39 +23,45 @@ p{
    margin-top: 20px;
 } 
 .newsfeed{
-    clear: both;
+    
+     float:left;
     border-bottom: 0.7px solid grey;
-    width: 660px;
+    /* width: 900px; */
+    
 }
 .dropdown{
-    width:210px;
+    width:220px;
     height: 30px;
-    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.event{
+    float:right;
+    right: 200px;
+    margin-top:20px;
+    width:220px;
+    margin-right:200px;
+   
 }
 .button{
     background-color:black;
-    width:70px;
+    width:75px;
     height: 32px;
     float: left;
     color: aliceblue
 }
-.input{
+.email{
     width:140px;
     height: 27px;
     float: left;
 }
-.end{
+.footer{
     clear: both;
     background-color:darkblue;
     height: 30px;
     text-align: center;
     color: aliceblue;
 }
-.button2{
-    background-color:rgb(218, 102, 59);
+.readButton{
+    background-color:grey;
     height: 35px;
-}
-.page{
-    margin-left: 200px;
-    margin-right: 300px;
 }
