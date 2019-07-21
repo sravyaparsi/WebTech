@@ -14,7 +14,7 @@ function createDOM(){
         userEvents.appendChild(selectList)
         userEvents.appendChild(email)
         userEvents.appendChild(subscribe)
-        var element = document.getElementById("main");
+        var element = document.createDocumentFragment();
        
         title=  createElement("div","title","NEWSFEED. yet another newsfeed");
         
@@ -23,13 +23,13 @@ function createDOM(){
         var titles=["Title one","Title Two","Tilte Three","Title Four", "Title Five", "Title Six", "Title Seven", "Tilte Eight","Title Nine","Title Ten"];
         for(let i=0;i<10;i++){
                 date=createElement("div","date",`${titles[i]}`);
-                post=createElement("i",null, `Posted on: 26/06/19 // category: ${titles[i]}`);
+                post=createElement("i","publish", `Posted on: 26/06/19 // category: ${titles[i]}`);
                 news= createElement("div","news","");
-                para=createElement("p",null,"News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed");
+                para=createElement("p","description","News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed");
 
                 button=createElement("button","readButton","continue Reading");
                 button.addEventListener("click",function(){
-            alert("News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed");
+                    alert("News Feed highlights information that includes profile changes, upcoming events, and birthdays, among other updates. Using a proprietary method, Facebook selects a handful of updates to show users every time they visit their feed");
                 });
                 var newsfeed=document.createElement("div");
                 newsfeed.className="newsfeed";
@@ -49,16 +49,13 @@ function createDOM(){
                 if(i==0)
                     element.appendChild(userEvents);
                 element.appendChild(newsfeed);
-                
-       
-                option = document.createElement("option");
-               
-                option.text = `${i+1}`;
-                selectList.options.add(option,i+1);
+                document.getElementById("main").appendChild(element);
         }
+       
         var button=document.getElementsByClassName("read").value;
         var footer=createElement("div","footer","@newsfeed 2019");
         element.appendChild(footer);
+
 }
 
 
@@ -79,14 +76,22 @@ function validateemail(){
 
 
 function CreateDropDown(){
-        var selectList=document.createElement("select");
-        var option = document.createElement("option");
-        selectList.className="dropdown";
-        selectList.id="select1";
-        option.text = "ALL";
-        selectList.addEventListener('change',function(){  dropdownselect();});
-        selectList.options.add(option);
-        return selectList
+    var selectList=document.createElement("select");
+    fetch("https://newsapi.org/v1/sources?language=en").then(function(response){
+        response.json().then(function(data){
+            for(let j=0;j<data.sources.length;j++){
+                var option= document.createElement("option");
+                option.text=data.sources[j].name;
+                option.value=data.sources[j].id;
+                selectList.options.add(option);
+                console.log(option.id)
+            }
+        });    
+    });
+    selectList.className="dropdown";
+    selectList.id="select1";
+    selectList.addEventListener('change',function(){  dropdownselect();});
+    return selectList
 }
 
 function createElement(e, classname,text){
@@ -99,24 +104,28 @@ function createElement(e, classname,text){
 }
 function dropdownselect(){
         var value=document.getElementById("select1").value;
-
-        var appBanners = document.getElementsByClassName('newsfeed');
-        
-
-        for (var i = 0; i < appBanners.length; i ++) {
-            if(i==value-1)
-                appBanners[i].style.display = 'block';
-            else{
-                appBanners[i].style.display = 'none';
-            }
-            
-            if(value=="ALL"){
-                if(appBanners[i].style.display == 'none'){
-
-                    appBanners[i].style.display = 'block';
+        fetch(`https://newsapi.org/v1/articles?source=${value}&apiKey=3324402577ec4712aa2bc171b67e2428`)
+            .then(function(response){
+                if(response.status!=200){
+                    alert("error occured. refresh and try again")
                 }
-               
-            }
-        }
+                else{
+                    response.json().then(function(data){
+                        console.log(data)
+                        dynamicContentAdd(data.articles);
+                    })
+                }
+            
+            })
        
+       
+}
+
+function dynamicContentAdd(articles){
+    for(let i=0;i<articles.length;i++){
+        document.getElementsByClassName("date")[i].innerText=articles[i].title;
+        document.getElementsByClassName("publish")[i].innerText=`Author: ${articles[i].author} PublishedAt: ${articles[i].publishedAt}`
+        console.log(articles)
+    }
+
 }
