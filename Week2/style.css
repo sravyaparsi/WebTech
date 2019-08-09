@@ -1,0 +1,67 @@
+.picture{
+    width: 120px;
+    height:150px;
+    
+    float: left;
+    margin: 20px;
+}
+.news{
+    float: left;
+    
+}
+p{
+    width: 700px;
+   
+}  
+.title{
+    background-color: darkblue;
+    height: 60px;
+    color:aliceblue;
+}
+
+.date{
+   margin-top: 20px;
+} 
+.newsfeed{
+    
+     float:left;
+    border-bottom: 0.7px solid grey;
+    /* width: 900px; */
+    
+}
+.dropdown{
+    width:220px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+.event{
+    float:right;
+    right: 200px;
+    margin-top:20px;
+    width:220px;
+    margin-right:200px;
+   
+}
+.button{
+    background-color:black;
+    width:75px;
+    height: 32px;
+    float: left;
+    color: aliceblue
+}
+.email{
+    width:140px;
+    height: 27px;
+    float: left;
+}
+.footer{
+    clear: both;
+    background-color:darkblue;
+    height: 30px;
+    text-align: center;
+    color: aliceblue;
+}
+.readButton{
+    background-color:grey;
+    height: 35px;
+}
