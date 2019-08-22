@@ -1,7 +1,11 @@
 import {api} from './API';
  import { dynamicContentAdd } from './AddContent';
+ import '@babel/polyfill';
+ import 'isomorphic-fetch';
+ 
 
 export function lazyload(){
+    console.log("fsf")
     fetch(api.headlines)
     .then(response=>{
         response.json()

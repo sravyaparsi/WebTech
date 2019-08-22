@@ -1,3 +1,5 @@
+
+
 export function dynamicContentAdd(articles){
     let newsfeed = document.getElementsByClassName('newsfeed');
     var i;
@@ -9,9 +11,10 @@ export function dynamicContentAdd(articles){
        
         document.getElementsByClassName("picture")[i].setAttribute("src",`${articles[i].urlToImage}`)
              
-        console.log(articles)
+        let s=`${articles[i].url}`
         document.getElementsByClassName("readButton")[i].addEventListener("click",()=>{
-            window.location.href = `${articles[i].url}`;
+            
+            window.location.href = s;
         });
     }
     if(articles.length<10){

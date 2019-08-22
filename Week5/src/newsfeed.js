@@ -1,6 +1,10 @@
 import {validateemail} from './validateemail.js'
 import dropdownselect from './UserSelect.js'
 import './style.css'
+import {api} from './API'
+import '@babel/polyfill';
+import 'isomorphic-fetch';
+
 
 function createDOM(){
        var userEvents=createElement("div","event","");
@@ -26,7 +30,7 @@ function createDOM(){
         usersubscribe.appendChild(subscribe);
         title.appendChild(usersubscribe);
 
-        for(let i=0;i<100;i++){
+        for(let i=0;i<50;i++){
                 var date=createElement("div","date","");
                 var post=createElement("i","publish", "");
                 let news= createElement("div","news","");
@@ -46,7 +50,7 @@ function createDOM(){
                 news.appendChild(button);
 
                 newsfeed.appendChild(picture);
-                newsfeed.append(news);
+                newsfeed.appendChild(news);
                
                 if(i==0)
                     element.appendChild(userEvents);
@@ -72,7 +76,7 @@ function CreateDropDown(){
     option.text="--please select--"
     selectList.options.add(option)
     selectList.options[0].disabled=true
-    fetch("https://newsapi.org/v1/sources?language=en").then(response=>{
+    fetch(api.sources).then(response=>{
         response.json().then(data=>{
             for(let j=0;j<data.sources.length;j++){
                 var option= document.createElement("option");
@@ -99,12 +103,16 @@ function createElement(e, classname,text){
 }
 
 var headlines=document.getElementById('headlines')
-if(headlines!=null){
-headlines.addEventListener('click', function(){
+
+  headlines.addEventListener('click', function(){
     console.log("started calling headlines");
-    import('./headlines.js').then(module=>{
+    import(/* webpackChunkName: "chunk1" */'./headlines.js').then(module=>{
+        console.log("inside import js")
         module.lazyload();
     })
 })
-}
+
+ 
+
+
 
