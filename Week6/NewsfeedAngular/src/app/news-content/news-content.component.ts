@@ -9,13 +9,16 @@ import {SourcesService} from '../sources.service'
   
 })
 export class NewsContentComponent implements OnInit {
-  data:object
+  data={}
   ngOnInit(){
 
   }
   constructor( private _sourceservice: SourcesService) {
-     _sourceservice.getArticles().then(data=>{this.data=data.articles[0]})
-      console.log( this.data)
+     _sourceservice.getArticles().then(data=>{
+       console.log(data)
+       this.data=data
+       console.log(typeof(data.articles))
+     })
     //  this.data=this.data.articles[0].urlToImage;
    }
 }

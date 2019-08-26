@@ -9,8 +9,10 @@
 </div>
 <div class="x">
 <div class="flex-container">
-   <select id="dropdown">
-       <option id="1">select </option>
+   <select id="dropdown" >
+        <option *ngFor="let source of {{news.source}}" [value]="{{source.id}}">
+            {{source.name   }}
+    </option>
    </select>
    <div class="nested-flex">
        <input id="newsfeedfilter">

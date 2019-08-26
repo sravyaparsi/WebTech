@@ -1,4 +1,13 @@
-<div class="flex-container">
-    <img src={{data}}>
-    <p>jj</p>
+
+<div  *ngFor="let para of data.articles">
+    <div class="flex-container">
+    <img src={{para.urlToImage}} id="picture">
+    <p id="para">{{para.description}}</p>
 </div>
+<button id="readButton">Continue Reading</button>
+
+
+</div>
+<!-- <div>
+    <p>sdf</p>
+</div> -->

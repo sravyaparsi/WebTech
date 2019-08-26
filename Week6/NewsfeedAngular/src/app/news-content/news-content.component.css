@@ -2,3 +2,15 @@
     display: flex;
     justify-content: flex-start
 }
+#picture{
+    height: 150px;
+    width: 120px;
+}
+#para{
+    height:35px;
+    width:700px;
+    margin-left: 10px;
+}
+#readButton{
+    margin-left:130px;
+}
