@@ -14,9 +14,8 @@ export class NewsContentComponent implements OnInit {
 
   }
   constructor( private _sourceservice: SourcesService) {
-    this.data=_sourceservice.getArticles();
-    console.log(this.data);
+     _sourceservice.getArticles().then(data=>{this.data=data.articles[0]})
+      console.log( this.data)
+    //  this.data=this.data.articles[0].urlToImage;
    }
-    
- 
 }
