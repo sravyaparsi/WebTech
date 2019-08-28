@@ -10,12 +10,14 @@ import {SourcesService} from '../sources.service'
 export class HeaderComponent implements OnInit {
   news=[]
   constructor(private _sources:SourcesService) {
-    console.log("hi")
+    
     var data=_sources.getsources().then(data=>{
-      this.news=data.sources
+      this.news=data
+      console.log("hi")
       console.log(this.news)
     })
    }
+   
   
   ngOnInit() {
    

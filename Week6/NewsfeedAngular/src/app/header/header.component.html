@@ -10,8 +10,8 @@
 <div class="x">
 <div class="flex-container">
    <select id="dropdown" >
-        <option *ngFor="let source of {{news.source}}" [value]="{{source.id}}">
-            {{source.name   }}
+        <option [value]=source.id *ngFor="let source of news.sources">
+          {{source.name}}
     </option>
    </select>
    <div class="nested-flex">

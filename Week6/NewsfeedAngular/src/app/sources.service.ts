@@ -15,7 +15,7 @@ export class SourcesService {
   getsources=async ()=>{
     const response = await fetch(' https://newsapi.org/v1/sources');
     const json = await response.json();
-    console.log(json)
+   
     return json
   }
   // async getArticles() {

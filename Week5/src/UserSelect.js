@@ -1,4 +1,7 @@
 import {dynamicContentAdd} from './AddContent.js'
+import '@babel/polyfill';
+import 'isomorphic-fetch';
+
 
 export default function dropdownselect(){
     var results;
