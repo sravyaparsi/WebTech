@@ -1,24 +1,11 @@
 <div class="flex-column">
-<div id="header">
-  
-    <button id="logout">Log out</button>
-    <label class="user">User Login</label>
+    <div id="header">
+    
+        <button id="logout">Log out</button>
+        <label class="user">User Login</label>
+    </div>
+    <div id="newstitle" >
+        {{displayname}}
+    </div>
 </div>
-<div id="newstitle" >
-{{newstitle}}
-</div>
-<div class="x">
-<div class="flex-container">
-   <select id="dropdown" >
-        <option [value]=source.id *ngFor="let source of news.sources">
-          {{source.name}}
-    </option>
-   </select>
-   <div class="nested-flex">
-       <input id="newsfeedfilter">
-       <button id="filter">Filter</button>
-   </div>
-   <button id="article">Add Article</button>
-</div>
-</div>
-</div>
+<app-header2 (sourceSelected)=DisplaySourceName($event)></app-header2>

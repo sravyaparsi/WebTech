@@ -1,0 +1,14 @@
+.nested-flex{
+    display: flex;
+    justify-content: center;
+}
+.x{
+    height: 30px;
+    margin: 5px;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}

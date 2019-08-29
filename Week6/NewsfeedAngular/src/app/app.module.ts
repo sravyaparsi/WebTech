@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NewsContentComponent } from './news-content/news-content.component';
 import { SourcesService } from './sources.service';
+import { Header2Component } from './header2/header2.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NewsContentComponent
+    NewsContentComponent,
+    Header2Component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [SourcesService],
   bootstrap: [AppComponent]

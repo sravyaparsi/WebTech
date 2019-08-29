@@ -17,22 +17,10 @@
     border: 1px ridge;
 }
 
-.flex-container{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    
-}
+
 .flex-column{
     display: flex;
     flex-direction: column;
     border: 1px ridge; 
 }
-.nested-flex{
-    display: flex;
-    justify-content: center;
-}
-.x{
-    height: 30px;
-    margin: 5px;
-}
+

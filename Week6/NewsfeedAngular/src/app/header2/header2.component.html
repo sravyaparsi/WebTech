@@ -1,0 +1,17 @@
+<div class="x">
+    <div class="flex-container">
+       <select  [(ngModel)]="selectedName" (change)="processSelectedValue()" >
+         
+            <option *ngFor="let source of news.sources" [value]=source.id >
+              {{source.name}}
+        </option>
+       </select>
+       <div class="nested-flex">
+           <input id="newsfeedfilter">
+           <button id="filter">Filter</button>
+       </div>
+       <button id="article">Add Article</button>
+    </div>
+</div>
+   
+    
