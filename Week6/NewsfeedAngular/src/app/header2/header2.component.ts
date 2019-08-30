@@ -16,7 +16,8 @@ export class Header2Component implements OnInit {
   
   }
   ngOnInit() {
-    var data=this._sources.getsources().then(data=>{
+    
+    var data=this._sources.getSources().subscribe(data=>{
       this.news=data
       console.log("hi")
       console.log(this.news)
@@ -25,7 +26,9 @@ export class Header2Component implements OnInit {
 
   processSelectedValue():void{
       this.sourceSelected.emit(this.selectedName)
+      this._sources.changeSelectedSource(this.selectedName)
   }
+
 
 }
 

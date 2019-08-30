@@ -10,12 +10,17 @@ import {SourcesService} from '../sources.service'
 })
 export class NewsContentComponent implements OnInit {
   data={}
+  private selectedSource
   ngOnInit(){
 
   }
   constructor( private _sourceservice: SourcesService) {
-     _sourceservice.getArticles().then(data=>{
-       console.log(data)
+    _sourceservice.currentSelectedSource.subscribe(data=>{
+      this.selectedSource=data
+      console.log(data)
+    })
+     _sourceservice.getArticles(this.selectedSource).then(data=>{
+     
        this.data=data
        console.log(typeof(data.articles))
      })
