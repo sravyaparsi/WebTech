@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class HeaderComponent implements OnInit {
-  displayname="BBC"
+  displayname="the-verge"
   constructor() {
    
-   }
+  }
    
   
   ngOnInit() {
@@ -20,4 +20,5 @@ export class HeaderComponent implements OnInit {
   DisplaySourceName($event){
     this.displayname=$event;
   }
+  
 }

@@ -15,15 +15,21 @@ export class NewsContentComponent implements OnInit {
 
   }
   constructor( private _sourceservice: SourcesService) {
-    _sourceservice.currentSelectedSource.subscribe(data=>{
+    
+    //  this.data=this.data.articles[0].urlToImage;
+   }
+
+   getArticles(){
+    this._sourceservice.currentSelectedSource.subscribe(data=>{
       this.selectedSource=data
       console.log(data)
     })
-     _sourceservice.getArticles(this.selectedSource).then(data=>{
+     this._sourceservice.getArticles(this.selectedSource).then(data=>{
      
        this.data=data
-       console.log(typeof(data.articles))
+       console.log("news")
+       console.log(data)
+       console.log("newsonctent"+typeof(data.articles))
      })
-    //  this.data=this.data.articles[0].urlToImage;
    }
 }

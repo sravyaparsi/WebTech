@@ -11,7 +11,7 @@ export class SourcesService {
       console.log(value)
     const response = await fetch(`https://newsapi.org/v1/articles?source=${value}&apiKey=3324402577ec4712aa2bc171b67e2428`);
     const json = await response.json();
-    return json
+    return json.articles
   }
 
   getSources():Observable<any>{
